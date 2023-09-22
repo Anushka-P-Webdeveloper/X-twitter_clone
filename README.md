@@ -1,4 +1,4 @@
-# twitter_clone
+# X/ twitter_clone
 
 Social media website clone[some similar to twitter(X)] made using databases & REST api's upon CRUD operations.
 
