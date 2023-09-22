@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://abs.twimg.com/responsive-web/client-web/icon-ios.77d25eba.png">
+
+    <title>Edit Username</title>
+    <link rel="stylesheet" href="edit.css">
+    <style>
+        body {
+            color: white;
+            text-align: center;
+            background: rgb(186, 186, 186);
+            background: linear-gradient(90deg,
+                    rgb(208, 208, 208) 15%,
+                    rgb(48, 48, 48) 50%,
+                    rgb(109, 196, 225) 85%);
+
+        }
+
+        p>span {
+            text-decoration: underline solid 1px rgba(39, 219, 255, 0.593);
+            text-underline-offset: 4px;
+        }
+
+        button {
+            border: 1px solid rgb(39, 219, 255);
+            padding: 10px 30px;
+            border-top-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            background-color: rgb(135, 229, 250);
+            color: black;
+            transition: 0.4s ease-in-out;
+            font-size: 18px;
+            box-shadow: 1px 1px 5px black;
+        }
+
+        button:hover {
+            border-bottom-right-radius: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 0;
+            border-bottom-left-radius: 0;
+            box-shadow: 2px 2px 10px black;
+            color: white;
+            background-color: transparent;
+            border: 2px solid rgba(0, 0, 0, 1);
+            border-inline-color: rgb(39, 219, 255);
+        }
+
+        #btndiv {
+            border: 2px solid rgb(61, 178, 198);
+            border-radius: 100px;
+            background-color: white;
+            color: black;
+            text-align: center;
+            box-sizing: border-box;
+            width: 30%;
+            margin: 15px auto;
+            padding: 8px;
+        }
+
+        #btndiv:hover {
+            box-shadow: 0px 0px 10px rgb(39, 219, 255);
+        }
+
+        h1 {
+            -webkit-text-stroke: 1px rgb(0, 134, 164);
+            text-shadow: 1px 1px 3px black;
+        }
+
+        h4 {
+            -webkit-text-stroke: 0.5px rgb(0, 134, 164);
+            text-shadow: 1px 1px 1px black;
+            word-spacing: 2px;
+
+        }
+
+        textarea {
+            border: 2px solid rgb(61, 178, 198);
+            border-radius: 10px;
+            box-shadow: 1px 1px 3px black;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Account Settings</h1>
+        <p>
+            <span>user's email</span>: <%= edit.email %>
+        </p><br>
+        <h4>Edit Username :</h4>
+        <form method="post" action="/posts/<%= edit.id %>/user?_method=PATCH">
+            <textarea name="username" cols="30" rows="10"> <%= edit.username %> </textarea><br>
+            <div><input id="btndiv" name="password" type="password" placeholder="Enter password" /><br>
+            </div><br>
+            <button>Edit</button>
+        </form>
+    </div>
+</body>
+
+</html>

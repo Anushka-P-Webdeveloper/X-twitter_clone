@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://abs.twimg.com/responsive-web/client-web/icon-ios.77d25eba.png">
+
+    <title>Posts</title>
+    <link rel="stylesheet" href="posts.css">
+</head>
+
+<body>
+    <div>
+        <% for (post of posts) { %>
+            <div id="post">
+                <div id="innerpost">
+                    <img id="img" src="<%= post.avatar %>" alt="img">
+                    &nbsp;
+                    <h3> <a href="http://localhost:8080/posts/<%= post.id %>/user">@<%= post.username %></a>
+
+                    </h3>
+                    <img class="img"
+                        src="https://news.cgtn.com/news/2023-07-24/Twitter-blue-bird-has-flown-as-Musk-says-X-logo-is-here-1lHTOE5KEqQ/img/6acae63a1c954db28946b19a2fcf13bf/6acae63a1c954db28946b19a2fcf13bf.jpeg"
+                        alt="X">
+                </div>
+                <p>
+                    <%= post.content %>
+                </p>
+                <!-- <form action="">
+                <button>Show user</button>
+            </form> -->
+            </div>
+            <% } %>
+    </div>
+</body>
+
+</html>

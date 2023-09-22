@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://abs.twimg.com/responsive-web/client-web/icon-ios.77d25eba.png">
+
+    <title>User's Profile</title>
+    <link rel="stylesheet" href="user.css">
+    <style>
+        body {
+            margin: 0px auto;
+            padding: 0px;
+        }
+
+        #bg {
+            width: 100vw;
+            object-fit: cover;
+            height: 55vh;
+        }
+
+        #profile {
+            border-radius: 50%;
+            border: 5px solid white;
+            height: 40vh;
+            width: 300px;
+            position: relative;
+            bottom: 7rem;
+            object-fit: cover;
+
+        }
+
+        h2 {
+            margin: 0 15px;
+            position: relative;
+            bottom: 6rem;
+        }
+
+        h2>span {
+            color: dodgerblue;
+        }
+
+        h3 {
+            margin: 0 20px;
+            text-decoration: 3px underline solid black;
+            text-underline-offset: 15px;
+            transition: text-decoration 0.2s ease-in-out;
+        }
+
+        h3:hover {
+            text-decoration: 3px underline dodgerblue;
+        }
+
+        #post {
+            margin: 20px 20px 20px;
+        }
+
+        #buttons {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            margin: 40px;
+        }
+
+        p {
+            border: 2px solid black;
+            padding: 10px;
+            box-shadow: 0 0 5px black;
+        }
+
+        button {
+            border: 1px solid rgb(39, 219, 255);
+            padding: 13px 40px;
+            border-top-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            background-color: rgb(135, 229, 250);
+            color: black;
+            transition: 0.4s ease-in-out;
+            font-size: 1rem;
+            box-shadow: 1px 1px 4px black;
+
+
+        }
+
+        button:hover {
+            border-bottom-right-radius: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 0;
+            border-bottom-left-radius: 0;
+            box-shadow: 2px 2px 10px black;
+            color: black;
+            background-color: rgba(0, 0, 0, 0.1);
+            border: 2px solid rgba(0, 0, 0, 0.3);
+            border-inline-color: rgb(39, 219, 255);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="box">
+            <img id="bg"
+                src="https://png.pngtree.com/background/20230616/original/pngtree-spacious-3d-render-of-twitter-platform-picture-image_3549598.jpg"
+                alt="bg">
+        </div>
+        <img id="profile" src="<%= user.avatar %>" alt="profile-picture">
+        <div id="pbox">
+            <h2>
+                @<%= user.username %> <span>&#10003</span>
+            </h2>
+            <h3>Post</h3>
+            <hr>
+            <p id="post">
+                <%= user.content %>
+            </p>
+            <hr>
+            <div id="buttons">
+                <form method="get" action="/posts/<%= user.id %>/user/edit">
+                    <button>Edit user</button>
+                </form>
+                <form method="get" action="/posts/<%= user.id %>/user/delete">
+                    <button>Delete user</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
